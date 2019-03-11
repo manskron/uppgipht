@@ -1,4 +1,4 @@
-# uppgiphter
+# uppgipht
 
 A minimal todo app written in vanilla Javascript
 
