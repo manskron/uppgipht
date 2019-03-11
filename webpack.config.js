@@ -8,7 +8,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist")
   },
   plugins: [
-    new HtmlWebpackPlugin({ title: "Uppgiphter", filename: "index.html", template: 'src/html/index.html' })
+    new HtmlWebpackPlugin({ title: "Uppgiphter", filename: "index.html", template: 'src/html/base.html' })
   ],
   module: {
     rules: [
