@@ -4,19 +4,34 @@ import createTodoElement from './createTodoElement.js';
 function handleForm(e) {
   e.preventDefault();
   let todos = document.querySelector('#todos');
-  let titleElement = document.querySelector('#todo-title');
-  let descElement = document.querySelector('#todo-desc');
-  let title = titleElement.value;
-  let desc = descElement.value;
+  let titleInput = document.querySelector('#todo-title');
+  let descInput = document.querySelector('#todo-desc');
+  let title = titleInput.value;
+  let desc = descInput.value;
   let id = Date.now();
   let timestamp = new Date().toISOString();
 
-  if (isValidInput(title, desc)) {
+  if(!isValidInput(title) && !isValidInput(desc)){
+    titleInput.placeholder = 'Please provide a title'
+    descInput.placeholder = 'Please provide a description'
+  }
+
+  if(!isValidInput(title)){
+    titleInput.placeholder = 'Please provide a title'
+  }
+
+  if(!isValidInput(desc)){
+    descInput.placeholder = 'Please provide a description'
+  }
+
+  if (isValidInput(title) && isValidInput(desc)) {
     let todoElement = createTodoElement(title, desc, timestamp, id);
     todos.appendChild(todoElement);
-    titleElement.value = '';
-    descElement.value = '';
-    titleElement.focus();
+    titleInput.value = '';
+    descInput.value = '';
+    titleInput.placeholder = ''
+    descInput.placeholder = ''
+    titleInput.focus();
 
     let storedTodos = JSON.parse(window.localStorage.getItem('todos'));
     storedTodos.push({ title, desc, done: false, added: timestamp, id });
