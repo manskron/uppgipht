@@ -1,5 +1,6 @@
 import isValidInput from './isValidInput.js';
 import createTodoElement from './createTodoElement.js';
+import moment from 'moment';
 
 function handleForm(e) {
   e.preventDefault();
@@ -9,7 +10,7 @@ function handleForm(e) {
   let title = titleInput.value;
   let desc = descInput.value;
   let id = Date.now();
-  let timestamp = new Date().toISOString();
+  let timestamp = moment().format('MMMM Do YYYY, H:mm');
 
   if(!isValidInput(title) && !isValidInput(desc)){
     titleInput.placeholder = 'Please provide a title'
