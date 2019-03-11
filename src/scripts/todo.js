@@ -1,5 +1,6 @@
 import init from './init.js';
 import handleForm from './handleTodoForm.js';
+import css from '../style/todo.css'
 
 document.addEventListener('DOMContentLoaded', () => {
   init();
