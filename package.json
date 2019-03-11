@@ -5,7 +5,7 @@
   "author": "Måns Kronkvist Brusbäck <mans.kronkvist@appliedtechnology.se>",
   "license": "MIT",
   "scripts": {
-    "deploy": "webpack",
+    "build": "webpack --mode production",
     "start": "webpack-dev-server"
   },
   "devDependencies": {
