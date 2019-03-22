@@ -1,11 +1,9 @@
 function handleDelete(e) {
-  let todoElement = e.target.parentNode;
-  let id = todoElement.id;
+  const todoElement = e.target.parentNode;
+  const { id } = todoElement;
 
-  let storedTodos = JSON.parse(window.localStorage.getItem('todos'));
-  let newTodos = storedTodos.filter(todo => {
-    return String(todo.id) !== id;
-  });
+  const storedTodos = JSON.parse(window.localStorage.getItem('todos'));
+  const newTodos = storedTodos.filter(todo => String(todo.id) !== id);
   localStorage.setItem('todos', JSON.stringify(newTodos));
 
   todoElement.remove();

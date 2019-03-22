@@ -1,6 +1,3 @@
-function addElementProperties(){
-
-
-}
+function addElementProperties() {}
 
 export default addElementProperties;

@@ -1,18 +1,18 @@
-import createTodoElement from './createTodoElement.js';
-import setTheme from './applyTheme.js';
+import createTodoElement from './createTodoElement';
+import setTheme from './applyTheme';
 
 function init() {
-  const localStorage = window.localStorage;
+  const { localStorage } = window;
 
-  if (!localStorage['todos']) {
+  if (!localStorage.todos) {
     localStorage.setItem('todos', JSON.stringify([]));
   }
 
-  if (!localStorage['theme']) {
+  if (!localStorage.theme) {
     localStorage.setItem('theme', '');
   }
 
-  let theme = localStorage['theme'];
+  let { theme } = localStorage;
   setTheme(theme);
 
   const logo = document.querySelector('#logo');
@@ -20,11 +20,11 @@ function init() {
     if (theme === 'light' || theme === '') {
       setTheme('dark');
       theme = 'dark';
-      localStorage.setItem('theme', 'dark')
+      localStorage.setItem('theme', 'dark');
     } else {
       setTheme('light');
       theme = 'light';
-      localStorage.setItem('theme', 'light')
+      localStorage.setItem('theme', 'light');
     }
   });
 
@@ -34,15 +34,9 @@ function init() {
   todosDiv.classList.add('app__todos');
   app.appendChild(todosDiv);
 
-  let storedTodos = JSON.parse(localStorage.getItem('todos'));
-  storedTodos.forEach(todo => {
-    const element = createTodoElement(
-      todo.title,
-      todo.desc,
-      todo.added,
-      todo.id,
-      todo.done
-    );
+  const storedTodos = JSON.parse(localStorage.getItem('todos'));
+  storedTodos.forEach((todo) => {
+    const element = createTodoElement(todo.title, todo.desc, todo.added, todo.id, todo.done);
     todosDiv.appendChild(element);
   });
 }

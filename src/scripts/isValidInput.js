@@ -1,5 +1,5 @@
 function isValidInput(input) {
-  let pattern = /.*\S.*/;
+  const pattern = /.*\S.*/;
 
   return pattern.test(input);
 }
