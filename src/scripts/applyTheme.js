@@ -1,5 +1,5 @@
 function setTheme(theme) {
-  let themeElement = document.querySelector('#theme');
+  const themeElement = document.querySelector('#theme');
   if (theme === 'dark') {
     themeElement.textContent = `
       body, input {background-color: black;}

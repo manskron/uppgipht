@@ -1,5 +1,5 @@
-import handleStatus from './handleStatusChange.js';
-import handleDelete from './handleDelete.js';
+import handleStatus from './handleStatusChange';
+import handleDelete from './handleDelete';
 
 function createTodoElement(title, desc, timestamp, id, done) {
   const todo = document.createElement('div');
@@ -16,17 +16,13 @@ function createTodoElement(title, desc, timestamp, id, done) {
   const statusButton = document.createElement('button');
   statusButton.classList.add('todo__status-btn');
   statusButton.id = 'statusBtn';
-  done === true
-    ? (statusButton.textContent = 'Undo')
-    : (statusButton.textContent = 'Done');
+  done === true ? (statusButton.textContent = 'Undo') : (statusButton.textContent = 'Done');
 
   const deleteButton = document.createElement('button');
   deleteButton.classList.add('todo__delete-btn');
   deleteButton.id = 'deleteBtn';
   deleteButton.textContent = 'Remove';
-  done === true
-    ? (deleteButton.style.display = '')
-    : (deleteButton.style.display = 'none');
+  done === true ? (deleteButton.style.display = '') : (deleteButton.style.display = 'none');
 
   todo.appendChild(statusButton);
   todo.appendChild(deleteButton);
